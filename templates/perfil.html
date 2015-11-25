@@ -1,0 +1,65 @@
+{% extends "_base.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <h1>Mis datos</h1>
+  <form>
+    <fieldset disabled>
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Nombre</span>
+            <input type="text" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Apellido Paterno</span>
+            <input type="text" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Apellido Materno</span>
+            <input type="text" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Correo</span>
+            <input type="password" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Password</span>
+            <input type="password" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Nacionalidad</span>
+            <input type="text" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Fecha de Nacimiento</span>
+            <input type="date" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Sexo</span>
+            <input type="text" class="form-control" value="" readonly="true">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

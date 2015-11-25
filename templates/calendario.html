@@ -1,0 +1,111 @@
+{% extends "_base.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<script type="text/javascript">
+$(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+  if(!$this.hasClass('panel-collapsed')) {
+    $this.parents('.panel').find('.panel-body').slideUp();
+    $this.addClass('panel-collapsed');
+    $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+  } else {
+    $this.parents('.panel').find('.panel-body').slideDown();
+    $this.removeClass('panel-collapsed');
+    $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+  }
+})
+</script>
+
+<div class="container">
+    <div class="row fila">
+		<!-- <div class="col-md-6"> -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Agregar evento</h3>
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body">
+          <form method="post" action="/calendaradd">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <span class="label label-primary">Titulo</span>
+                    <input type="text" name="name" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <span class="label label-primary">Locación</span>
+                    <input type="text" name="location" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <span class="label label-primary">Descripción</span>
+                    <textarea class="form-control" name="des" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-md-4">
+                  <div class="form-group">
+                    <span class="label label-primary">Fecha de Inicio</span>
+                    <input name="fechaini" type="text" class="form-control" placeholder="MM/DD/AAAA" id="datepicker">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <div class="form-group">
+                    <span class="label label-primary">Fecha de Entrega</span>
+                    <input name="fechafin" type="text" class="form-control" placeholder="MM/DD/AAAA" id="datepicker2">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+          </form>
+        </div>
+			</div>
+		<!-- </div> -->
+	</div>
+  <div class="row fila">
+		<!-- <div class="col-md-6"> -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Eventos Futuros</h3>
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body">
+          <table class="table table-bordered">
+            <tr class="active">
+              <th>Titulo</th>
+              <th>Ubicación</th>
+              <th>Descripción</th>
+              <th>Fecha de Inicio</th>
+              <th>Fecha de Entrega</th>
+              <th></th>
+            </tr>
+            <tbody>
+              {%for ev in eventos:%}
+                <tr>
+                  <td class="title" title="{{ ev.summary }}">{{ ev.summary }}</td>
+                  <td class="title" title="{{ ev.summary }}">{{ ev.location }}</td>
+                  <td class="title" title="{{ ev.summary }}">{{ ev.description }}</td>
+                  <td class="title" title="{{ ev.summary }}">{{ ev.start.dateTime }}</td>
+                  <td class="title" title="{{ ev.summary }}">{{ ev.end.dateTime }}</td>
+                  <td>
+                    <a class='btn btn-danger btn-md' role='button' href='/delevent?idevent={{ev.id}}'><spam class='glyphicon glyphicon-trash' aria-hiden='true'</spam></a>
+                  </td>
+                </tr>
+              {%endfor%}
+            </tbody>
+            </table>
+        </div>
+			</div>
+		<!-- </div> -->
+  </div>
+</div>
+
+{% endblock %}

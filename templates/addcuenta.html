@@ -1,0 +1,29 @@
+{% extends "_basecuenta.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <h1>Agregar nueva cuenta</h1>
+  <form action="/cuentaa" method="post">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Nombre de la Cuenta</span>
+            <input name="cuenta" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Saldo Inicial</span>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" id="exampleInputAmount" name="saldo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+  </form>
+</div>
+{% endblock %}

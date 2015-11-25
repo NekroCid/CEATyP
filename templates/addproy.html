@@ -1,0 +1,26 @@
+{% extends "_base.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <h1>Agregar nuevo proyecto</h1>
+  <form>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Titulo</span>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Saldo Inicial</span>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+
+{% extends "_basecuenta.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <h1>Agregar egreso</h1>
+  <form action="/egreso" method="post">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <span class="label label-primary">Fecha de Entrega</span>
+            <input name="fechaeg" type="text" class="form-control" placeholder="AAAA-MM-DD" id="datepicker">
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <span class="label label-primary">Importe</span>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" id="exampleInputAmount" name="saldo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <span class="label label-primary">Cuenta</span>
+            <select name="cuenta" class="form-control">
+              {%for resultado in cuentas:%}
+              <option value="{{resultado.Nombre}}">{{resultado.Nombre}}</option>
+              {%endfor%}
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <span class="label label-primary">Categoria</span>
+            <input name="categoria" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+  </form>
+</div>
+{% endblock %}

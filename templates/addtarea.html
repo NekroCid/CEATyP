@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <h1>Agregar Nueva Tarea</h1>
+  <form method="post" action="/tarea">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Titulo</span>
+            <input type="text" name="titulo" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <span class="label label-primary">Nota</span>
+            <textarea name="nota" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <span class="label label-primary">Fecha de Entrega</span>
+            <input name="fecha" type="text" class="form-control" placeholder="AAAA-MM-DD" id="datepicker">
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+  </form>
+</div>
+{% endblock %}
