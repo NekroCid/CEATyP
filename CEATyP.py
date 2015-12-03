@@ -126,11 +126,13 @@ class Index(Handler):
                 if mail=="Admin":
                     self.render("_base2.html", correo=mail)
                 else:
-                    self.render("_base.html", correo=mail)
+					self.redirect('/principal')
+                    # self.render("_base.html", correo=mail)
             else:
                 logging.info('POST consulta=' + str(consulta))
                 msg = 'Incorrect user or password.. please try again'
                 self.render("index.html", error=msg)
+
 class Registro(Handler):
     #Metodo get
 	def get(self):
@@ -441,6 +443,25 @@ class Ingreso(Handler):
 			logging.info("Nombre: " + str(resultado.Nombre))
 		self.render("ingreso.html", correo=mail, cuentas=qry)
 
+class Informes(Handler):
+	def get(self):
+		mail = self.session.get('Correo')
+		qry = EgresoNDB.query(EgresoNDB.Usuario == mail)
+		qry2 = IngresoNDB.query(IngresoNDB.Usuario == mail)
+		self.render("informe.html", correo=mail, egresos=qry, ingreso=qry2)
+
+class Va(Handler):
+	def get(self):
+		mail = self.session.get('Correo')
+		qry = EgresoNDB.query(EgresoNDB.Usuario == mail)
+		self.render("va.html", correo=mail, egresos=qry)
+
+class Viene(Handler):
+	def get(self):
+		mail = self.session.get('Correo')
+		qry2 = IngresoNDB.query(IngresoNDB.Usuario == mail)
+		self.render("viene.html", correo=mail, ingreso=qry2)
+
 class Egreso(Handler):
     #Metodo get
 	def get(self):
@@ -539,6 +560,9 @@ app = webapp2.WSGIApplication([('/',Index),
 				('/cuentaa',CuentaNew),
 				('/ingreso',Ingreso),
 				('/egreso',Egreso),
+				('/dondeva',Va),
+				('/dondeviene',Viene),
+				('/informes',Informes),
 				(MailHandler.mapping()),
 				(LogBounceHandler.mapping()),
 				(decorator.callback_path, decorator.callback_handler())

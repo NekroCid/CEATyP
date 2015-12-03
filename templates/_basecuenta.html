@@ -17,7 +17,7 @@
    <script src="js/jquery-ui.js"></script>
    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
    <link rel="stylesheet" href="js/jquery-ui.css">
-     <script src="js/Chart.js"></script>
+  <script src="js/Chart.js"></script>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
@@ -138,9 +138,9 @@
                   <a href="#"><i class="fa fa-pie-chart fa-lg"></i> Informes <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="informes">
-                  <li>New New 1</li>
-                  <li>New New 2</li>
-                  <li>New New 3</li>
+                  <li><a href="/informes">Transacciones</a></li>
+                  <li><a href="/dondeva">Dónde va el dinero</a></li>
+                  <li><a href="/dondeviene">De dónde viene el dinero</a></li>
                 </ul>
             </ul>
      </div>
@@ -156,7 +156,7 @@
                    <table class="table table-bordered">
                      <tr class="active">
                        <th>Cuenta</th>
-                       <th>Ubicación</th>
+                       <th>Saldo</th>
                      </tr>
                      <tbody>
                        {%for res in cuentas:%}
@@ -174,32 +174,32 @@
            		</div>
              </div>
            </div>
+           <script>
+         	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+         	var barChartData = {
+         		labels : ["Ingresos","Egresos"],
+         		datasets : [
+         			{
+                fillColor : "rgba(151,187,205,0.5)",
+        				strokeColor : "rgba(151,187,205,0.8)",
+        				highlightFill : "rgba(151,187,205,0.75)",
+        				highlightStroke : "rgba(151,187,205,1)",
+         				data : [{{ingreso}},{{egreso}}]
+         			}
+         		]
+
+         	}
+         	window.onload = function(){
+         		var ctx = document.getElementById("canvas").getContext("2d");
+         		window.myBar = new Chart(ctx).Bar(barChartData, {
+         			responsive : true
+         		});
+         	}
+
+         	</script>
       {% endblock %}
    </div>
-   <script>
- 	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-
- 	var barChartData = {
- 		labels : ["Ingresos","Egresos"],
- 		datasets : [
- 			{
-        fillColor : "rgba(151,187,205,0.5)",
-				strokeColor : "rgba(151,187,205,0.8)",
-				highlightFill : "rgba(151,187,205,0.75)",
-				highlightStroke : "rgba(151,187,205,1)",
- 				data : [{{ingreso}},{{egreso}}]
- 			}
- 		]
-
- 	}
- 	window.onload = function(){
- 		var ctx = document.getElementById("canvas").getContext("2d");
- 		window.myBar = new Chart(ctx).Bar(barChartData, {
- 			responsive : true
- 		});
- 	}
-
- 	</script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
   <!-- Include all compiled plugins (below), or include individual files as needed -->

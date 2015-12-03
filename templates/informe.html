@@ -1,0 +1,39 @@
+{% extends "_basecuenta.html" %}
+{% set active_page = "datos" %}
+{% block bodycontent %}
+<div class="container">
+  <div class="col-xs-10">
+
+  <div class="col-xs-7">
+  <table class="table table-bordered">
+    <tr class="active">
+      <th>Cuenta</th>
+      <th>Categoria</th>
+      <th>Fecha</th>
+      <th>Cargo</th>
+      <th>Abono</th>
+    </tr>
+    <tbody>
+      {% for ingre in ingreso %}
+      <tr>
+        <td>{{ ingre.Cuenta }}</td>
+        <td>{{ ingre.Categoria }}</td>
+        <td>{{ingre.Fecha }}</td>
+        <td></td>
+        <td>$ {{ingre.Ingreso }}</td>
+      </tr>
+      {% endfor %}
+      {% for egre in egresos %}
+      <tr>
+        <td>{{ egre.Cuenta }}</td>
+        <td>{{ egre.Categoria }}</td>
+        <td>{{ egre.Fecha }}</td>
+        <td style="color:#FF0000;">-$ {{ egre.Egreso }}</td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+{% endblock %}

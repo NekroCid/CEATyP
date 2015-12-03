@@ -21,7 +21,7 @@ handlers:
   static_dir: static/fonts
 
 - url: /.*
-  script: proyecto.app
+  script: CEATyP.app
 
 - url: /_ah/mail/.+
   script: main.app
@@ -32,16 +32,19 @@ handlers:
   login: admin
 
 - url: /_ah/bounce
-  script: proyecto.app
+  script: CEATyP.app
   login: admin
 
 libraries:
 - name: jinja2
   version: latest
-  
+
 - name: pycrypto
   version: latest
 
 inbound_services:
 - mail
 - mail_bounce
+
+builtins:
+- appstats: on
