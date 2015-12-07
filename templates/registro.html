@@ -3,7 +3,24 @@
    <title>
       {% block title %}Control Escolar{% endblock %}
    </title>
+
+   <!-- <link rel="stylesheet" type="text/css" href="/static/estilo.css"> -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/estilos.css">
+   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+   <link rel="stylesheet" href="js/jquery-ui.css">
+   <!-- <script scr="js/jquery.js"></script> -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   <script src="js/jquery.js"></script>
+   <script src="js/jquery-ui.js"></script>
+   <script src="js/jquery.datetimepicker.full.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
    <style media="screen">
+   .custom-date-style {
+   	background-color: red !important;
+   }
    #form{
      border-radius: 18px 18px 18px 18px;
     -moz-border-radius: 18px 18px 18px 18px;
@@ -16,22 +33,6 @@
      font-size: 8p;
    }
    </style>
-   <!-- <link rel="stylesheet" type="text/css" href="/static/estilo.css"> -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-   <link rel="stylesheet" href="css/estilos.css">
-   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-   <link rel="stylesheet" href="js/jquery-ui.css">
-   <!-- <script scr="js/jquery.js"></script> -->
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-   <script src="js/jquery.js"></script>
-   <script src="js/jquery-ui.js"></script>
-   <script>
-     $(function() {
-       $( "#datepicker" ).datepicker();
-     });
-   </script>
  </head>
 
  <body>
@@ -83,7 +84,7 @@
           					</div>
           					<div class="form-group">
           						<label for="reg_fullname" class="sr-only">Fecha de nacimeinto</label>
-                      <input name="reg_date" type="text" class="form-control" placeholder="Fecha de nacimeinto" id="datepicker">
+                      <input name="reg_date" type="text" class="form-control" placeholder="Fecha de nacimeinto" id="datetimepicker2">
           					</div>
                     <div class="form-group">
                       <label for="reg_fullname" class="sr-only">Nacionalidad</label>
@@ -103,8 +104,13 @@
           				<p>¿Ya estas registrado? <a href="/">Incio Sesion aqui</a></p>
           			</div>
                 {% if error %}
-                <p class="alert alert-success">
+                <p class="alert alert-danger">
                   {{error}}
+                </p>
+                {% endif %}
+                {% if success %}
+                <p class="alert alert-success">
+                  {{success}}
                 </p>
                 {% endif %}
           		</form>
@@ -114,6 +120,20 @@
         </div>
       {% endblock %}
    </div>
+   <script>
+     $(function() {
+       $( "#datepicker" ).datepicker();
+     });
+     $('#datetimepicker2').datetimepicker({
+     	lang:'ch',
+     	timepicker:false,
+     	format:'Y-m-d',
+     	formatDate:'Y-m-d',
+     // 	timepicker:false,
+     // 	format:'Y-m-d',
+     // 	formatDate:'Y-m-d'
+     });
+   </script>
    <footer>
 
 		<p>© 2015 CEATyP. Todos los derechos reservados. <a href="/contacto">Soporte y contacto</a> 0.0067</p>

@@ -17,7 +17,7 @@
             <span class="label label-primary">Importe</span>
             <div class="input-group">
               <div class="input-group-addon">$</div>
-              <input type="text" class="form-control" id="exampleInputAmount" name="saldo">
+              <input type="text" class="form-control" id="exampleInputAmount"  placeholder="Cantidad gastada" name="saldo">
             </div>
           </div>
         </div>
@@ -36,11 +36,28 @@
         <div class="col-xs-4">
           <div class="form-group">
             <span class="label label-primary">Categoria</span>
-            <input name="categoria" type="text" class="form-control">
+            <input name="categoria" type="text" class="form-control"  placeholder="¿En que se gasto?">
           </div>
         </div>
       </div>
       <button type="submit" name="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Guardar</button>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="form-group">
+            <br>
+            {% if error %}
+            <p class="alert alert-danger">
+              {{error}}
+            </p>
+            {% endif %}
+            {% if success %}
+            <p class="alert alert-success">
+              {{success}}
+            </p>
+            {% endif %}
+            </div>
+          </div>
+        </div>
   </form>
 </div>
 {% endblock %}

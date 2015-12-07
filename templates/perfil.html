@@ -9,19 +9,19 @@
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Nombre</span>
-            <input type="text" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{{datos.Nombre[0].Nom}}">
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Apellido Paterno</span>
-            <input type="text" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{{datos.Nombre[0].ApellidoPaterno}}">
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Apellido Materno</span>
-            <input type="text" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{{datos.Nombre[0].ApellidoMaterno}}">
           </div>
         </div>
       </div>
@@ -29,13 +29,13 @@
         <div class="col-xs-6">
           <div class="form-group">
             <span class="label label-primary">Correo</span>
-            <input type="password" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{{datos.Correo}}">
           </div>
         </div>
         <div class="col-xs-6">
           <div class="form-group">
             <span class="label label-primary">Password</span>
-            <input type="password" class="form-control" value="" readonly="true">
+            <input type="password" class="form-control" value="{{datos.Contrasena}}">
           </div>
         </div>
       </div>
@@ -43,19 +43,19 @@
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Nacionalidad</span>
-            <input type="text" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{{datos.Nacionalidad}}">
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Fecha de Nacimiento</span>
-            <input type="date" class="form-control" value="" readonly="true">
+            <input type="date" class="form-control" value="{{datos.Fecha_Nacimiento}}">
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="form-group">
             <span class="label label-primary">Sexo</span>
-            <input type="text" class="form-control" value="" readonly="true">
+            <input type="text" class="form-control" value="{%if (datos.Sexo)%} Masculino {%else%} Femenino {%endif%}">
           </div>
         </div>
       </div>

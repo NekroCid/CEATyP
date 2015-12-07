@@ -24,12 +24,12 @@ handlers:
   script: CEATyP.app
 
 - url: /_ah/mail/.+
-  script: main.app
-  login: admin
+  script: CEATyP.app
+  # login: admin
 
 - url: /_ah/mail/ceatyp@myapp\.appspotmail\.com
-  script: main.app
-  login: admin
+  script: CEATyP.app
+  # login: admin
 
 - url: /_ah/bounce
   script: CEATyP.app

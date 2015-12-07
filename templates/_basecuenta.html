@@ -162,7 +162,7 @@
                        {%for res in cuentas:%}
                          <tr>
                            <td class="title" title="{{ res.Nombre }}">{{ res.Nombre }}</td>
-                           <td class="title" title="{{ res.Nombre }}">{{ res.Saldo }}</td>
+                           <td class="title" title="{{ res.Nombre }}">{{ "${:,.2f}".format(res.Saldo) }}</td>
                          </tr>
                        {%endfor%}
                      </tbody>

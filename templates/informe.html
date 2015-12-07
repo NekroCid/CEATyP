@@ -4,7 +4,6 @@
 <div class="container">
   <div class="col-xs-10">
 
-  <div class="col-xs-7">
   <table class="table table-bordered">
     <tr class="active">
       <th>Cuenta</th>
@@ -20,7 +19,7 @@
         <td>{{ ingre.Categoria }}</td>
         <td>{{ingre.Fecha }}</td>
         <td></td>
-        <td>$ {{ingre.Ingreso }}</td>
+        <td>{{ "${:,.2f}".format(ingre.Ingreso) }}</td>
       </tr>
       {% endfor %}
       {% for egre in egresos %}
@@ -28,7 +27,7 @@
         <td>{{ egre.Cuenta }}</td>
         <td>{{ egre.Categoria }}</td>
         <td>{{ egre.Fecha }}</td>
-        <td style="color:#FF0000;">-$ {{ egre.Egreso }}</td>
+        <td style="color:#FF0000;">-{{ "${:,.2f}".format(egre.Egreso) }}</td>
         <td></td>
       </tr>
       {% endfor %}

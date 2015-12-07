@@ -14,10 +14,11 @@
         <tr {% if task.status == "completed" %}class="success"{% endif %}>
           <td class="title" title="{{ task.title }}">{{ task.title_short }}</td>
           <td class="title" title="{{ task.title }}">{{ task.notes }}</td>
-          <td class="title" title="{{ task.title }}">{{ task.due }}</td>
+          <td class="title" title="{{ task.title }}">{{ task.due}}</td>
           <td>
 						<a class='btn btn-warning btn-md' role='button' href='/taream?idtask={{task.id}}'><spam class='glyphicon glyphicon-pencil' aria-hiden='true'</spam></a>
 						<a class='btn btn-danger btn-md' role='button' href='/tareab?idtask={{task.id}}'><spam class='glyphicon glyphicon-trash' aria-hiden='true'</spam></a>
+            {% if task.status != "completed" %}<a class='btn btn-success btn-md' role='button' href='/tareast?idtask={{task.id}}'><spam class='glyphicon glyphicon-ok' aria-hiden='true'</spam></a>{% endif %}
 					</td>
         </tr>
         {% endfor %}

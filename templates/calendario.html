@@ -59,8 +59,22 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
                 </div>
                 <div class="col-xs-6 col-md-4">
                   <div class="form-group">
+                    <span class="label label-primary">Hora de Inicio</span>
+                    <input name="horaini" type="time" class="form-control" placeholder="" id="datetimepicker1">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-md-4">
+                  <div class="form-group">
                     <span class="label label-primary">Fecha de Entrega</span>
                     <input name="fechafin" type="text" class="form-control" placeholder="MM/DD/AAAA" id="datepicker2">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <div class="form-group">
+                    <span class="label label-primary">Hora de Entrega</span>
+                    <input name="horafin" type="time" class="form-control" placeholder="" id="datetimepicker2">
                   </div>
                 </div>
               </div>
@@ -107,5 +121,17 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
 		<!-- </div> -->
   </div>
 </div>
+<script type="text/javascript">
+$('#datetimepicker1').datetimepicker({
+  datepicker:false,
+  format:'H:i',
+  step:5
+});
+$('#datetimepicker2').datetimepicker({
+  datepicker:false,
+  format:'H:i',
+  step:5
+});
+</script>
 
 {% endblock %}
